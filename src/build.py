@@ -12,7 +12,7 @@ from threadpoolctl import threadpool_limits
 
 from src.analytics import generate_insights
 from src.anomalies import detect
-from src.common import ARTIFACTS, FEATURE_VERSION, PROCESSED, ROOT, SEED, digest, sha256, write_json
+from src.common import ARTIFACTS, FEATURE_VERSION, PROCESSED, ROOT, SEED, digest, sha256, source_sha256, write_json
 from src.features import build_features
 from src.ingestion import load_sources, stage_raw
 from src.modeling import train_models
@@ -40,7 +40,7 @@ def main():
     accounts = accounts.merge(scores, on="account_id", validate="one_to_one")
     accounts.to_parquet(PROCESSED / "accounts.parquet", index=False)
     scores.to_parquet(ARTIFACTS / "scores.parquet", index=False)
-    importance.to_csv(ARTIFACTS / "importance.csv", index=False)
+    importance.to_csv(ARTIFACTS / "importance.csv", index=False, lineterminator="\n")
     joblib.dump(bundle, ARTIFACTS / "model.joblib", compress=3)
     joblib.dump(detector, ARTIFACTS / "anomaly_model.joblib", compress=3)
     write_json(ARTIFACTS / "metrics.json", metrics)
@@ -52,9 +52,9 @@ def main():
         revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, stderr=subprocess.DEVNULL, text=True).strip()
     except (subprocess.CalledProcessError, FileNotFoundError):
         revision = "uncommitted-workspace"
-    code_hashes = {p.relative_to(ROOT).as_posix(): sha256(p) for p in sorted((ROOT / "src").glob("*.py"))}
+    code_hashes = {p.relative_to(ROOT).as_posix(): source_sha256(p) for p in sorted((ROOT / "src").glob("*.py"))}
     outputs = sorted(PROCESSED.glob("*.parquet")) + [p for p in sorted(ARTIFACTS.iterdir()) if p.name != "manifest.json" and p.is_file()]
-    manifest = {"build_id": digest({"inputs": source_hashes, "code": code_hashes, "features": FEATURE_VERSION})[:20], "feature_version": FEATURE_VERSION, "input_hash": input_hash, "source_hashes": source_hashes, "source_code_hashes": code_hashes, "revision": revision, "seed": SEED, "python": platform.python_version(), "packages": {name: importlib.metadata.version(name) for name in ["numpy", "pandas", "scikit-learn", "streamlit", "joblib", "pyarrow"]}, "outputs": {p.relative_to(ROOT).as_posix(): sha256(p) for p in outputs}}
+    manifest = {"build_id": digest({"inputs": source_hashes, "code": code_hashes, "features": FEATURE_VERSION})[:20], "feature_version": FEATURE_VERSION, "input_hash": input_hash, "source_hash_mode": "lf-normalized-v1", "source_hashes": source_hashes, "source_code_hashes": code_hashes, "revision": revision, "seed": SEED, "python": platform.python_version(), "packages": {name: importlib.metadata.version(name) for name in ["numpy", "pandas", "scikit-learn", "streamlit", "joblib", "pyarrow"]}, "outputs": {p.relative_to(ROOT).as_posix(): sha256(p) for p in outputs}}
     write_json(ARTIFACTS / "manifest.json", manifest)
     from src.reporting import render_documents
     render_documents()

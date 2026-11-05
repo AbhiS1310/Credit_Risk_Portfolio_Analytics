@@ -7,7 +7,7 @@ import json
 import joblib
 import pandas as pd
 
-from src.common import ARTIFACTS, PROCESSED, ROOT, sha256
+from src.common import ARTIFACTS, PROCESSED, ROOT, sha256, source_sha256
 
 
 def load_artifacts():
@@ -18,9 +18,10 @@ def load_artifacts():
     for name, version in manifest["packages"].items():
         if importlib.metadata.version(name) != version:
             raise ValueError(f"Package mismatch for {name}. Install requirements.lock.txt or rebuild artifacts with the installed versions.")
+    source_hasher = source_sha256 if manifest.get("source_hash_mode") == "lf-normalized-v1" else sha256
     for name, expected in manifest["source_code_hashes"].items():
         path = (ROOT / name).resolve()
-        if not path.is_relative_to(ROOT) or not path.is_file() or sha256(path) != expected:
+        if not path.is_relative_to(ROOT) or not path.is_file() or source_hasher(path) != expected:
             raise ValueError(f"Source changed since the build: {name}. Run python -m src.build.")
     for name, expected in manifest["outputs"].items():
         path = (ROOT / name).resolve()

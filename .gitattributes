@@ -1,0 +1,12 @@
+# Keep source checkouts consistent on Windows and Streamlit's Linux host.
+* text=auto eol=lf
+
+# Preserve original inputs and generated artifact bytes used by SHA-256 checks.
+data/raw/** -text
+data/processed/** -text
+artifacts/** -text
+
+# PDFs and serialized models must never undergo newline conversion.
+*.pdf binary
+*.parquet binary
+*.joblib binary

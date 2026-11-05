@@ -8,9 +8,14 @@ from src.ingestion import load_sources
 
 
 def test_originals_unchanged():
+    import json
     source = ROOT / "AI Case Study 1" / "Case 2" / "files (10)"
+    expected = json.loads((ROOT / "artifacts" / "manifest.json").read_text())["source_hashes"]
     for path in RAW.glob("*.csv"):
-        assert sha256(path) == sha256(source / path.name)
+        assert sha256(path) == expected[path.stem]
+        original = source / path.name
+        if original.exists():  # The deployment checkout only needs data/raw/.
+            assert sha256(path) == sha256(original)
 
 
 def test_real_data_reconciliation(accounts):

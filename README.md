@@ -84,6 +84,8 @@ Rebuild with `python -m src.build` after source/data changes. The manifest recor
 
 ## Hosting and submission
 
+If hosting reports **Source changed since the build**, rebuild locally and publish the matching source files and `artifacts/manifest.json` together. Source fingerprints normalize LF/CRLF so Windows-to-Linux checkout does not invalidate the build. Generated JSON/CSV uses LF, and `.gitattributes` preserves byte-exact data/model artifacts. Include `.gitattributes` when publishing; do not disable integrity checks to bypass a real mismatch.
+
 **Demo video:** [Watch the LendScope walkthrough on Loom](https://www.loom.com/share/8e5cf64ccdb6403d81750181ed843a9a)
 
 For Streamlit Community Cloud, push this repository including `data/raw/`, `data/processed/`, `artifacts/`, and the two PDFs to GitHub. Select `app/app.py` as entry point and Python 3.11. Install the checked-in requirements, configure the Groq secrets and `REVIEW_STORAGE="sqlite"` (no database provisioning required), then open the app anonymously and test both AI features. Hosted runtime has not been verified in this workspace.
