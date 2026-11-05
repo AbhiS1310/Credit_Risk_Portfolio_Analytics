@@ -1,0 +1,198 @@
+{
+  "tables": {
+    "customers": {
+      "rows": 10000,
+      "sha256": "a194e65ccc40979c55675a7b41d0d4c4f7cd27299771718c1e7db69be29259a6",
+      "missing": {
+        "customer_id": 0,
+        "age": 0,
+        "gender": 0,
+        "marital_status": 0,
+        "education_level": 0,
+        "employment_type": 0,
+        "occupation_sector": 0,
+        "years_employed": 500,
+        "annual_income": 0,
+        "region": 0,
+        "city_tier": 0,
+        "num_dependents": 500,
+        "housing_type": 0,
+        "years_at_residence": 500,
+        "customer_since": 0
+      },
+      "schema": {
+        "customer_id": "string",
+        "age": "float64",
+        "gender": "string",
+        "marital_status": "string",
+        "education_level": "string",
+        "employment_type": "string",
+        "occupation_sector": "string",
+        "years_employed": "float64",
+        "annual_income": "float64",
+        "region": "string",
+        "city_tier": "string",
+        "num_dependents": "float64",
+        "housing_type": "string",
+        "years_at_residence": "float64",
+        "customer_since": "datetime64[ns]"
+      },
+      "duplicate_keys": 0
+    },
+    "loan_accounts": {
+      "rows": 14685,
+      "sha256": "6cbe24fadd1545b03e319208a4f2cdaea1e2623c72e7c3ac1cebfdd77a03792a",
+      "missing": {
+        "account_id": 0,
+        "customer_id": 0,
+        "loan_type": 0,
+        "loan_purpose": 0,
+        "loan_amount": 0,
+        "interest_rate_pct": 294,
+        "tenure_months": 0,
+        "origination_date": 0,
+        "disbursal_channel": 0,
+        "collateral_flag": 0,
+        "target_default": 0
+      },
+      "schema": {
+        "account_id": "string",
+        "customer_id": "string",
+        "loan_type": "string",
+        "loan_purpose": "string",
+        "loan_amount": "float64",
+        "interest_rate_pct": "float64",
+        "tenure_months": "float64",
+        "origination_date": "datetime64[ns]",
+        "disbursal_channel": "string",
+        "collateral_flag": "float64",
+        "target_default": "float64"
+      },
+      "duplicate_keys": 0
+    },
+    "bureau_credit": {
+      "rows": 22979,
+      "sha256": "a5ffa76b67bfbd4452e19cfef16503e128ab1bccf7617a5d4ed77a055c7e1603",
+      "missing": {
+        "bureau_id": 0,
+        "customer_id": 0,
+        "credit_type": 0,
+        "lender_category": 0,
+        "sanctioned_amount": 0,
+        "outstanding_amount": 0,
+        "account_status": 0,
+        "days_past_due": 689,
+        "date_opened": 0,
+        "date_closed": 11243
+      },
+      "schema": {
+        "bureau_id": "string",
+        "customer_id": "string",
+        "credit_type": "string",
+        "lender_category": "string",
+        "sanctioned_amount": "float64",
+        "outstanding_amount": "float64",
+        "account_status": "string",
+        "days_past_due": "float64",
+        "date_opened": "datetime64[ns]",
+        "date_closed": "datetime64[ns]"
+      },
+      "duplicate_keys": 0
+    },
+    "repayment_history": {
+      "rows": 176220,
+      "sha256": "1a7161b868e7fc9e9f7f449cf4e1d4ea45cf2b21a4df997963a5d1165f1e5129",
+      "missing": {
+        "account_id": 0,
+        "payment_month": 0,
+        "emi_due": 0,
+        "emi_paid": 0,
+        "days_past_due": 0,
+        "payment_status": 0,
+        "outstanding_balance": 0
+      },
+      "schema": {
+        "account_id": "string",
+        "payment_month": "float64",
+        "emi_due": "float64",
+        "emi_paid": "float64",
+        "days_past_due": "float64",
+        "payment_status": "string",
+        "outstanding_balance": "float64"
+      },
+      "duplicate_keys": 0
+    },
+    "collections_events": {
+      "rows": 8635,
+      "sha256": "76442b5e09d6b03becde563409e17c6431e5359d6ffb09e819061df594615ae5",
+      "missing": {
+        "collection_event_id": 0,
+        "account_id": 0,
+        "event_date": 0,
+        "action_type": 0,
+        "outcome": 0,
+        "amount_recovered": 0
+      },
+      "schema": {
+        "collection_event_id": "string",
+        "account_id": "string",
+        "event_date": "datetime64[ns]",
+        "action_type": "string",
+        "outcome": "string",
+        "amount_recovered": "float64"
+      },
+      "duplicate_keys": 0
+    }
+  },
+  "warnings": {
+    "customers.gender.unknown_category": 0,
+    "customers.region.unknown_category": 0,
+    "customers.employment_type.unknown_category": 0,
+    "loan_accounts.loan_type.unknown_category": 0,
+    "bureau_credit.account_status.unknown_category": 0,
+    "repayment_history.payment_status.unknown_category": 0,
+    "closed_bureau_without_date": 0,
+    "active_bureau_with_close_date": 0,
+    "bureau_closed_before_opened": 0,
+    "bureau_zero_sanctioned": 0,
+    "repayment_overpaid": 0,
+    "status_on_time_positive_dpd": 0,
+    "status_late_zero_dpd": 0,
+    "status_missed_positive_payment": 0,
+    "implausible_age": 0,
+    "employment_exceeds_adult_lifetime": 1004,
+    "residence_exceeds_age": 5,
+    "loan_before_customer_since": 7293,
+    "collection_before_origination": 3875,
+    "bureau_opened_after_customer_latest_loan": 13143
+  },
+  "normalizations": {
+    "gender_aliases": 600
+  },
+  "foreign_keys": "all valid",
+  "joins": [
+    {
+      "join": "customers",
+      "rows": 14685
+    },
+    {
+      "join": "bureau",
+      "rows": 14685
+    },
+    {
+      "join": "repayment",
+      "rows": 14685
+    },
+    {
+      "join": "collections",
+      "rows": 14685
+    }
+  ],
+  "reconciliation": {
+    "accounts": 14685,
+    "defaults": 2364,
+    "principal": 601119531.64,
+    "latest_outstanding": 512637943.19,
+    "collection_recovered": 5748239.81
+  }
+}

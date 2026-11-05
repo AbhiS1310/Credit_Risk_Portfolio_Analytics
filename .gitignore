@@ -1,0 +1,47 @@
+# Local Python environments and caches
+.venv/
+venv/
+env/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Local credentials; keep shareable configuration templates
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Runtime review databases and SQLite journal files
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Temporary renders, logs, and packaging output
+tmp/
+temp/
+*.log
+build/
+dist/
+*.egg-info/
+
+# Editor and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Keep data/raw/, data/processed/, artifacts/, docs/*.pdf,
+# requirements.lock.txt, and .streamlit/config.toml for deployment.

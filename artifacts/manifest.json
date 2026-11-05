@@ -1,0 +1,55 @@
+{
+  "build_id": "f4d8e13fda0737daeb39",
+  "feature_version": "account-v1",
+  "input_hash": "5d114ecaf1d3a44040a7aea2e2637701b5fbd7d2e95db42f0c3ffb7ebf4abb96",
+  "source_hashes": {
+    "customers": "a194e65ccc40979c55675a7b41d0d4c4f7cd27299771718c1e7db69be29259a6",
+    "loan_accounts": "6cbe24fadd1545b03e319208a4f2cdaea1e2623c72e7c3ac1cebfdd77a03792a",
+    "bureau_credit": "a5ffa76b67bfbd4452e19cfef16503e128ab1bccf7617a5d4ed77a055c7e1603",
+    "repayment_history": "1a7161b868e7fc9e9f7f449cf4e1d4ea45cf2b21a4df997963a5d1165f1e5129",
+    "collections_events": "76442b5e09d6b03becde563409e17c6431e5359d6ffb09e819061df594615ae5"
+  },
+  "source_code_hashes": {
+    "src/__init__.py": "c10b6487aa557fa483623d4c19092a0f8f674f5c9eae10f9be05e83b723e0558",
+    "src/analytics.py": "59f99e087b0111493d6b14f7698cb2de7cb22d26aab607c8a212afa9bc0b9bc7",
+    "src/anomalies.py": "848cc4a5eae535791fbbfe34e03e67befd6cd7e57c2562e9451bb2d0ad09a39b",
+    "src/build.py": "1971e68ed1a615a89a961f8c43699af999a58c1af55bf060a02d04900fab8b4e",
+    "src/common.py": "26fe17002cb9c2653fad84baf217fdd80abb8e9c1c0a2ead923e6c613a59fd34",
+    "src/features.py": "bdd007a138199bd97a1ec9765f0969472a138a8242e33796d61fd6e5373e915b",
+    "src/ingestion.py": "c5e3506b15d8a992ebdeb37e13af64aaf31797f441a3772f87c0d2828314a6c9",
+    "src/modeling.py": "4313a698612b69c713a36d6479e0294277d4ab4e09ee987599f044b374f97ec6",
+    "src/qa.py": "4f19ab951a4876949b21bb4fab997aa3d948c1d50d58300f5ef35a9ba4cb8e70",
+    "src/reporting.py": "50cda9dbabed071077e0dd2e587fcbea12967098fd931b354ded374f50f0cafe",
+    "src/reviews.py": "390dae0864ca46810b5fccee16c4fdc03ac18a02037d70b50a4ecc457357909d",
+    "src/runtime.py": "af9dc046c86391406989b8bed9e93961da9aef5770c7c94051161e0b9a8d80cf",
+    "src/smoke_llm.py": "f5db9a52bc08f553f873c78f3552c59936548b1ca0ffd44b69a895f9ea9ced5b"
+  },
+  "revision": "uncommitted-workspace",
+  "seed": 42,
+  "python": "3.11.17",
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "streamlit": "1.45.1",
+    "joblib": "1.5.1",
+    "pyarrow": "20.0.0"
+  },
+  "outputs": {
+    "data/processed/accounts.parquet": "f867812fae323b4dbe3fdcc91b8a29c2139b9c99fcfae830487400564f3083a8",
+    "data/processed/bureau_credit.parquet": "1a4aa74cfc091d8b8d15f921de9bf8b6b0b5b2027b2c5386afa1a7961aa4a1dd",
+    "data/processed/collections_events.parquet": "2511719f3b095e31935635ac1a0bb774b7b68b9298162c71d0042d2c651310a5",
+    "data/processed/customers.parquet": "ab45fe10f61486eaad044e824de70c9f56c19cfaca4e2d113684bb3964e72e08",
+    "data/processed/loan_accounts.parquet": "cd9f508e338a9338b84d05bb10072616746478f032f1dd4d258e1988574ae646",
+    "data/processed/repayment_history.parquet": "a8a76fab5ae8e6dd940cbe0b1ee2a77b289f4f80b459a695969ee121728e6f1b",
+    "artifacts/anomalies.json": "8a87742c1e7fa62d487fad18be49cdf4a3c8bbd002d39bbb2ecc87b70dba85d2",
+    "artifacts/anomaly_model.joblib": "747eefede4a9b848863dbe2019b4214cace0ec2634084dafea6044fb6d702f55",
+    "artifacts/anomaly_summary.json": "c279ab55b180c25cf8bfb18bbd33eb6634e74e8592a1f38a2c9b5926348821cc",
+    "artifacts/importance.csv": "d9e1031835f4bcac345425f7f12d1978916ed0baa126a4a09a5ce8663d4756dd",
+    "artifacts/insights.json": "6faec4524fa6d5c7e21f4a217676e77f86a234db9201ff185aa90ba3882eba39",
+    "artifacts/metrics.json": "630e938a52a6d0aefa495ba5c281085890db537a2ebad827d0cb160e0e875dd3",
+    "artifacts/model.joblib": "29bd0d8232e2f765c4e4869ea2702698983221eeb26117d9c8b9443b7c4c24e9",
+    "artifacts/quality_report.json": "7fedfdb055dd0188926bf191d1a12c2df16600e073385358f211c3ff2d847d2c",
+    "artifacts/scores.parquet": "6a8971e6ff421fcbd8fbe3348a61b79aa9bce01dc876d160cf28d19c419bfdac"
+  }
+}

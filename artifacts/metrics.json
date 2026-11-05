@@ -1,0 +1,81 @@
+{
+  "logistic": {
+    "validation": {
+      "auc": 0.6679864660571593,
+      "ks": 0.25622705348786984,
+      "gini": 0.33597293211431856,
+      "accounts": 2915,
+      "defaults": 479,
+      "default_rate": 0.16432246998284733
+    },
+    "test": {
+      "auc": 0.6768126557323184,
+      "ks": 0.2606685194819419,
+      "gini": 0.3536253114646368,
+      "accounts": 2948,
+      "defaults": 472,
+      "default_rate": 0.16010854816824965
+    }
+  },
+  "histogram": {
+    "validation": {
+      "auc": 0.6537617710679405,
+      "ks": 0.23351621982030163,
+      "gini": 0.30752354213588107,
+      "accounts": 2915,
+      "defaults": 479,
+      "default_rate": 0.16432246998284733
+    },
+    "test": {
+      "auc": 0.6613095890035869,
+      "ks": 0.24161099093672134,
+      "gini": 0.3226191780071739,
+      "accounts": 2948,
+      "defaults": 472,
+      "default_rate": 0.16010854816824965
+    }
+  },
+  "selected": "logistic",
+  "histogram_parameters": {
+    "learning_rate": 0.05,
+    "max_leaf_nodes": 15
+  },
+  "search": [
+    {
+      "validation_auc": 0.6537617710679405,
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 15
+    },
+    {
+      "validation_auc": 0.6489410752422775,
+      "learning_rate": 0.05,
+      "max_leaf_nodes": 31
+    },
+    {
+      "validation_auc": 0.6431331009115187,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 15
+    },
+    {
+      "validation_auc": 0.6298656889867026,
+      "learning_rate": 0.1,
+      "max_leaf_nodes": 31
+    }
+  ],
+  "seed": 42,
+  "limitation": "Retrospective classification only; no outcome horizon or timestamped bureau snapshot. Temporal leakage remains possible.",
+  "split_counts": {
+    "train": {
+      "accounts": 8822,
+      "customers": 6000
+    },
+    "validation": {
+      "accounts": 2915,
+      "customers": 2000
+    },
+    "test": {
+      "accounts": 2948,
+      "customers": 2000
+    }
+  }
+}

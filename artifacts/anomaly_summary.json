@@ -1,0 +1,14 @@
+{
+  "version": "8cd8b424dc2decfeb743",
+  "config": {
+    "version": "peer-forest-v1",
+    "trees": 200,
+    "contamination": 0.05,
+    "seed": 42,
+    "peer_minimum": 30,
+    "robust_deviations": 3
+  },
+  "flagged_accounts": 1685,
+  "forest_flagged": 735,
+  "accounts": 14685
+}

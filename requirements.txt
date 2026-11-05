@@ -1,0 +1,18 @@
+-c requirements.lock.txt
+numpy==2.2.6
+pandas==2.2.3
+scikit-learn==1.6.1
+streamlit==1.45.1
+plotly==6.1.2
+SQLAlchemy==2.0.41
+psycopg[binary]==3.2.9
+pydantic==2.11.5
+requests==2.32.4
+chardet==5.2.0
+joblib==1.5.1
+pyarrow==20.0.0
+python-dotenv==1.1.0
+threadpoolctl==3.6.0
+reportlab==4.4.1
+PyMuPDF==1.26.0
+pytest==8.3.5

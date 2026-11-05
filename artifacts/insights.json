@@ -1,0 +1,85 @@
+[
+  {
+    "title": "Highest observed product default rate",
+    "segment": {
+      "loan_type": "Mortgage"
+    },
+    "metric": "default_rate",
+    "value": 0.24650837988826815,
+    "defaults": 353,
+    "accounts": 1432,
+    "so_what": "Review underwriting and monitoring for this product; observed association is not causation.",
+    "source_fields": [
+      "loan_accounts.target_default",
+      "loan_accounts.account_id"
+    ],
+    "caveat": "Synthetic retrospective sample; at least 30 accounts per ranked cell."
+  },
+  {
+    "title": "Highest observed employment-segment default rate",
+    "segment": {
+      "employment_type": "Unemployed"
+    },
+    "metric": "default_rate",
+    "value": 0.34958217270194986,
+    "defaults": 251,
+    "accounts": 718,
+    "so_what": "Investigate affordability and repayment patterns before changing credit policy.",
+    "source_fields": [
+      "loan_accounts.target_default",
+      "loan_accounts.account_id"
+    ],
+    "caveat": "Synthetic retrospective sample; at least 30 accounts per ranked cell."
+  },
+  {
+    "title": "Largest observed exposure by region",
+    "segment": {
+      "region": "South"
+    },
+    "metric": "observed_exposure",
+    "value": 134008349.72999999,
+    "defaults": 607,
+    "accounts": 3600,
+    "so_what": "Prioritize regional monitoring in proportion to outstanding exposure.",
+    "source_fields": [
+      "repayment_history.payment_month",
+      "repayment_history.outstanding_balance"
+    ],
+    "caveat": "Synthetic retrospective sample; at least 30 accounts per ranked cell."
+  },
+  {
+    "title": "Highest observed age-band default rate",
+    "segment": {
+      "age_band": "<25"
+    },
+    "metric": "default_rate",
+    "value": 0.22388955582232895,
+    "defaults": 373,
+    "accounts": 1666,
+    "so_what": "Use this descriptive cut for monitoring; do not infer an age-based lending rule.",
+    "source_fields": [
+      "loan_accounts.target_default",
+      "loan_accounts.account_id"
+    ],
+    "caveat": "Synthetic retrospective sample; at least 30 accounts per ranked cell."
+  },
+  {
+    "title": "Highest observed employment-by-income default rate",
+    "segment": {
+      "employment_type": "Unemployed",
+      "income_band": "<25k"
+    },
+    "metric": "default_rate",
+    "value": 0.4461538461538462,
+    "defaults": 87,
+    "accounts": 195,
+    "so_what": "Investigate the joint affordability/employment segment; aggregate employment averages may hide this concentration.",
+    "source_fields": [
+      "loan_accounts.target_default",
+      "loan_accounts.account_id",
+      "customers.employment_type",
+      "customers.annual_income"
+    ],
+    "caveat": "Descriptive cross-cut, not a causal effect; at least 30 accounts."
+  }
+]
